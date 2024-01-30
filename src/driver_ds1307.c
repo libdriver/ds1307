@@ -25,12 +25,12 @@
  * @brief     driver ds1307 source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-05-31
+ * @date      2023-05-31
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2022/05/31  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2023/05/31  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -305,7 +305,7 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
         
         return 1;                                                                                            /* return error */
     }
-    res = a_ds1307_iic_write(handle, DS1307_REG_SECOND, a_ds1307_hex2bcd((reg & (1 << 7)) | t->second));     /* write second */
+    res = a_ds1307_iic_write(handle, DS1307_REG_SECOND, a_ds1307_hex2bcd(t->second) | (reg & (1 << 7)));     /* write second */
     if (res != 0)                                                                                            /* check result */
     {
         handle->debug_print("ds1307: write second failed.\n");                                               /* write second failed */
