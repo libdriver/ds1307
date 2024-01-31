@@ -203,9 +203,9 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
     }
     if (t->format == DS1307_FORMAT_12H)                                                                      /* if 12H */
     {
-        if ((t->year < 1990) || (t->year >= 2090))                                                           /* check year */
+        if ((t->year < 2000) || (t->year > 2100))                                                            /* check year */
         {
-            handle->debug_print("ds1307: year can't be over 2090 or less than 1990.\n");                     /* year can't be over 2090 or less than 1990 */
+            handle->debug_print("ds1307: year can't be over 2100 or less than 2000.\n");                     /* year can't be over 2100 or less than 2000 */
             
             return 4;                                                                                        /* return error */
         }
@@ -248,9 +248,9 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
     }
     else if (t->format == DS1307_FORMAT_24H)                                                                 /* if 24H */
     {
-        if ((t->year < 1990) || (t->year >= 2090))                                                           /* check year */
+        if ((t->year < 2000) || (t->year > 2100))                                                            /* check year */
         {
-            handle->debug_print("ds1307: year can't be over 2090 or less than 1990.\n");                     /* year can't be over 2090 or less than 1990 */
+            handle->debug_print("ds1307: year can't be over 2100 or less than 2000.\n");                     /* year can't be over 2100 or less than 2000 */
             
             return 4;                                                                                        /* return error */
         }
@@ -355,7 +355,7 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
         
         return 1;                                                                                            /* return error */
     }
-    year = t->year - 1990;                                                                                   /* year -1990 */
+    year = t->year - 2000;                                                                                   /* year - 2000 */
     res = a_ds1307_iic_write(handle, DS1307_REG_YEAR, a_ds1307_hex2bcd((uint8_t)year));                      /* write year */
     if (res != 0)                                                                                            /* check result */
     {
@@ -406,7 +406,7 @@ uint8_t ds1307_get_time(ds1307_handle_t *handle, ds1307_time_t *t)
         
         return 1;                                                                         /* return error */
     }
-    t->year = a_ds1307_bcd2hex(buf[6]) + 1990;                                            /* get year */
+    t->year = a_ds1307_bcd2hex(buf[6]) + 2000;                                            /* get year */
     t->month = a_ds1307_bcd2hex(buf[5] & 0x1F);                                           /* get month */
     t->week = a_ds1307_bcd2hex(buf[3] & 0x7);                                             /* get week */
     t->date = a_ds1307_bcd2hex(buf[4] & 0x3F);                                            /* get date */
