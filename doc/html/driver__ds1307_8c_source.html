@@ -654,13 +654,13 @@ $(document).ready(function(){initNavTree('driver__ds1307_8c_source.html',''); in
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    {</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="keywordflow">return</span> 3;                                                                  <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    }</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keywordflow">if</span> (addr &gt; 56)                                                                 <span class="comment">/* check addr */</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keywordflow">if</span> (addr &gt; 55)                                                                 <span class="comment">/* check addr */</span></div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    {</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: addr &gt; 56.\n&quot;</span>);                               <span class="comment">/* addr &gt; 56 */</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: addr &gt; 55.\n&quot;</span>);                               <span class="comment">/* addr &gt; 55 */</span></div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        </div>
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keywordflow">return</span> 4;                                                                  <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    }</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keywordflow">if</span> (addr + len &gt; 56)                                                           <span class="comment">/* check len */</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keywordflow">if</span> (addr + len - 1 &gt; 55)                                                       <span class="comment">/* check len */</span></div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;    {</div>
 <div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: len is invalid.\n&quot;</span>);                          <span class="comment">/* len is invalid */</span></div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        </div>
@@ -691,13 +691,13 @@ $(document).ready(function(){initNavTree('driver__ds1307_8c_source.html',''); in
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    {</div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;        <span class="keywordflow">return</span> 3;                                                                  <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    }</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    <span class="keywordflow">if</span> (addr &gt; 56)                                                                 <span class="comment">/* check addr */</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    <span class="keywordflow">if</span> (addr &gt; 55)                                                                 <span class="comment">/* check addr */</span></div>
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    {</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: addr &gt; 56.\n&quot;</span>);                               <span class="comment">/* addr &gt; 56 */</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: addr &gt; 55.\n&quot;</span>);                               <span class="comment">/* addr &gt; 55 */</span></div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        </div>
 <div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        <span class="keywordflow">return</span> 4;                                                                  <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    }</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    <span class="keywordflow">if</span> (addr + len &gt; 56)                                                           <span class="comment">/* check len */</span></div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    <span class="keywordflow">if</span> (addr + len - 1 &gt; 55)                                                       <span class="comment">/* check len */</span></div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    {</div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;        handle-&gt;<a class="code" href="structds1307__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b">debug_print</a>(<span class="stringliteral">&quot;ds1307: len is invalid.\n&quot;</span>);                          <span class="comment">/* len is invalid */</span></div>
 <div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;        </div>

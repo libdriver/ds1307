@@ -765,7 +765,7 @@ uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
  *             - 1 read ram failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 addr > 56
+ *             - 4 addr > 55
  *             - 5 len is invalid
  * @note       none
  */
@@ -781,13 +781,13 @@ uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uin
     {
         return 3;                                                                  /* return error */
     }
-    if (addr > 56)                                                                 /* check addr */
+    if (addr > 55)                                                                 /* check addr */
     {
-        handle->debug_print("ds1307: addr > 56.\n");                               /* addr > 56 */
+        handle->debug_print("ds1307: addr > 55.\n");                               /* addr > 55 */
         
         return 4;                                                                  /* return error */
     }
-    if (addr + len > 56)                                                           /* check len */
+    if (addr + len - 1 > 55)                                                       /* check len */
     {
         handle->debug_print("ds1307: len is invalid.\n");                          /* len is invalid */
         
@@ -817,7 +817,7 @@ uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uin
  *            - 1 write ram failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 addr > 56
+ *            - 4 addr > 55
  *            - 5 len is invalid
  * @note      none
  */
@@ -833,13 +833,13 @@ uint8_t ds1307_write_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, ui
     {
         return 3;                                                                  /* return error */
     }
-    if (addr > 56)                                                                 /* check addr */
+    if (addr > 55)                                                                 /* check addr */
     {
-        handle->debug_print("ds1307: addr > 56.\n");                               /* addr > 56 */
+        handle->debug_print("ds1307: addr > 55.\n");                               /* addr > 55 */
         
         return 4;                                                                  /* return error */
     }
-    if (addr + len > 56)                                                           /* check len */
+    if (addr + len - 1 > 55)                                                       /* check len */
     {
         handle->debug_print("ds1307: len is invalid.\n");                          /* len is invalid */
         
