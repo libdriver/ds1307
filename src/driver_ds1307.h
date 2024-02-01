@@ -308,7 +308,7 @@ uint8_t ds1307_get_time(ds1307_handle_t *handle, ds1307_time_t *t);
  *             - 1 read ram failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 addr > 56
+ *             - 4 addr > 55
  *             - 5 len is invalid
  * @note       none
  */
@@ -325,7 +325,7 @@ uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uin
  *            - 1 write ram failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
- *            - 4 addr > 56
+ *            - 4 addr > 55
  *            - 5 len is invalid
  * @note      none
  */
