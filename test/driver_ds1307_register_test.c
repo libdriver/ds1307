@@ -116,7 +116,7 @@ uint8_t ds1307_register_test(void)
     /* 12H format */
     time_in.format = DS1307_FORMAT_12H;
     time_in.am_pm = DS1307_PM;
-    time_in.year = rand() % 100 + 1990;
+    time_in.year = rand() % 100 + 2000;
     time_in.month = rand() % 12 + 1;
     time_in.date = rand() % 20 + 1;
     time_in.week = rand() % 7 + 1;
@@ -148,7 +148,7 @@ uint8_t ds1307_register_test(void)
     /* 24H format */
     time_in.format = DS1307_FORMAT_24H;
     time_in.am_pm = DS1307_AM;
-    time_in.year = rand() % 100 + 1990;
+    time_in.year = rand() % 100 + 2000;
     time_in.month = rand() % 12 + 1;
     time_in.date = rand() % 20 + 1;
     time_in.week = rand() % 7 + 1;
