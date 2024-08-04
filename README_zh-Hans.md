@@ -8,7 +8,7 @@
 
 [![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/ds1307/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
-DS1307串行实时时钟（RTC）是一种低功耗、全二进制编码十进制（BCD）时钟/日历加上56字节NV SRAM。地址和数据通过I2C双向总线串行传输。时钟/日历提供秒、分钟、小时、天、日期、月份和年份信息。对于少于31天的月份，月末日期会自动调整，包括闰年的更正。时钟以24小时或12小时的形式运行，带有AM/PM指示器。DS1307有一个内置的电源感应电路，可以检测电源故障并自动切换到备用电源。当零件通过备用电源运行时，计时操作仍在继续。
+DS1307串行实时时钟（RTC）是一种集成56字节NV SRAM的低功耗、全二进制编码十进制（BCD）时钟/日历时钟芯片。地址和数据通过I2C双向总线串行传输。时钟/日历提供秒、分钟、小时、天、日期、月份和年份信息。对于少于31天的月份，月末日期会自动调整，包括闰年的更正。时钟以24小时或12小时的形式运行，带有AM/PM指示器。DS1307有一个内置的电源感应电路，可以检测电源故障并自动切换到备用电源。当芯片通过备用电源运行时，计时操作仍在继续。
 
 LibDriver DS1307是LibDriver推出的DS1307全功能驱动，该驱动提供时间读取和方波输出等功能并且它符合MISRA标准。
 
