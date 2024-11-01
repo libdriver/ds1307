@@ -129,18 +129,28 @@ typedef struct ds1307_time_s
 } ds1307_time_t;
 
 /**
- * @brief ds1307 handle structure definition
+ * @brief ds1307 structure type definition
  */
-typedef struct ds1307_handle_s
+typedef struct ds1307_s ds1307_t;
+
+/**
+ * @brief ds1307 handle type definition
+ */
+typedef ds1307_t *ds1307_handle_t;
+
+/**
+ * @brief ds1307 structure definition
+ */
+struct ds1307_s
 {
-    uint8_t (*iic_init)(void);                                                          /**< point to an iic_init function address */
-    uint8_t (*iic_deinit)(void);                                                        /**< point to an iic_deinit function address */
-    uint8_t (*iic_write)(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);        /**< point to an iic_write function address */
-    uint8_t (*iic_read)(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);         /**< point to an iic_read function address */
-    void (*debug_print)(const char *const fmt, ...);                                    /**< point to a debug_print function address */
-    void (*delay_ms)(uint32_t ms);                                                      /**< point to a delay_ms function address */
-    uint8_t inited;                                                                     /**< inited flag */
-} ds1307_handle_t;
+    uint8_t (*iic_init)(ds1307_handle_t handle);                                                            /**< point to an iic_init function address */
+    uint8_t (*iic_deinit)(ds1307_handle_t handle);                                                          /**< point to an iic_deinit function address */
+    uint8_t (*iic_write)(ds1307_handle_t handle, uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);    /**< point to an iic_write function address */
+    uint8_t (*iic_read)(ds1307_handle_t handle, uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);     /**< point to an iic_read function address */
+    void (*debug_print)(ds1307_handle_t handle, const char *const fmt, ...);                                /**< point to a debug_print function address */
+    void (*delay_ms)(ds1307_handle_t handle, uint32_t ms);                                                  /**< point to a delay_ms function address */
+    uint8_t inited;                                                                                         /**< inited flag */
+};
 
 /**
  * @brief ds1307 information structure definition
@@ -248,7 +258,7 @@ uint8_t ds1307_info(ds1307_info_t *info);
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic initialization failed
@@ -256,11 +266,11 @@ uint8_t ds1307_info(ds1307_info_t *info);
  *            - 3 linked functions is NULL
  * @note      none
  */
-uint8_t ds1307_init(ds1307_handle_t *handle);
+uint8_t ds1307_init(ds1307_handle_t handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic deinit failed
@@ -268,11 +278,11 @@ uint8_t ds1307_init(ds1307_handle_t *handle);
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_deinit(ds1307_handle_t *handle);
+uint8_t ds1307_deinit(ds1307_handle_t handle);
 
 /**
  * @brief     set the current time
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] *t points to a time structure
  * @return    status code
  *            - 0 success
@@ -282,11 +292,11 @@ uint8_t ds1307_deinit(ds1307_handle_t *handle);
  *            - 4 time is invalid
  * @note      none
  */
-uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t);
+uint8_t ds1307_set_time(ds1307_handle_t handle, ds1307_time_t *t);
 
 /**
  * @brief      get the current time
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[out] *t points to a time structure
  * @return     status code
  *             - 0 success
@@ -295,11 +305,11 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t);
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_time(ds1307_handle_t *handle, ds1307_time_t *t);
+uint8_t ds1307_get_time(ds1307_handle_t handle, ds1307_time_t *t);
 
 /**
  * @brief      read ram
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[in]  addr is the ram address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the buffer length
@@ -312,11 +322,11 @@ uint8_t ds1307_get_time(ds1307_handle_t *handle, ds1307_time_t *t);
  *             - 5 len is invalid
  * @note       none
  */
-uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uint8_t len);
+uint8_t ds1307_read_ram(ds1307_handle_t handle, uint8_t addr, uint8_t *buf, uint8_t len);
 
 /**
  * @brief     write ram
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] addr is the ram address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the buffer length
@@ -329,11 +339,11 @@ uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uin
  *            - 5 len is invalid
  * @note      none
  */
-uint8_t ds1307_write_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uint8_t len);
+uint8_t ds1307_write_ram(ds1307_handle_t handle, uint8_t addr, uint8_t *buf, uint8_t len);
 
 /**
  * @brief     enable or disable the oscillator
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -342,11 +352,11 @@ uint8_t ds1307_write_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, ui
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_set_oscillator(ds1307_handle_t *handle, ds1307_bool_t enable);
+uint8_t ds1307_set_oscillator(ds1307_handle_t handle, ds1307_bool_t enable);
 
 /**
  * @brief      get the chip oscillator status
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[out] *enable points to a bool value buffer
  * @return     status code
  *             - 0 success
@@ -355,11 +365,11 @@ uint8_t ds1307_set_oscillator(ds1307_handle_t *handle, ds1307_bool_t enable);
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_oscillator(ds1307_handle_t *handle, ds1307_bool_t *enable);
+uint8_t ds1307_get_oscillator(ds1307_handle_t handle, ds1307_bool_t *enable);
 
 /**
  * @brief     set the output level
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] level is the output level
  * @return    status code
  *            - 0 success
@@ -368,11 +378,11 @@ uint8_t ds1307_get_oscillator(ds1307_handle_t *handle, ds1307_bool_t *enable);
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_set_output_level(ds1307_handle_t *handle, ds1307_output_level_t level);
+uint8_t ds1307_set_output_level(ds1307_handle_t handle, ds1307_output_level_t level);
 
 /**
  * @brief      get the output level
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[out] *level points to an output level buffer
  * @return     status code
  *             - 0 success
@@ -381,11 +391,11 @@ uint8_t ds1307_set_output_level(ds1307_handle_t *handle, ds1307_output_level_t l
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_output_level(ds1307_handle_t *handle, ds1307_output_level_t *level);
+uint8_t ds1307_get_output_level(ds1307_handle_t handle, ds1307_output_level_t *level);
 
 /**
  * @brief     set the output mode
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] mode is the output mode
  * @return    status code
  *            - 0 success
@@ -394,11 +404,11 @@ uint8_t ds1307_get_output_level(ds1307_handle_t *handle, ds1307_output_level_t *
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_set_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t mode);
+uint8_t ds1307_set_output_mode(ds1307_handle_t handle, ds1307_output_mode_t mode);
 
 /**
  * @brief      get the output mode
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[out] *mode points to an output mode buffer
  * @return     status code
  *             - 0 success
@@ -407,11 +417,11 @@ uint8_t ds1307_set_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t mod
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t *mode);
+uint8_t ds1307_get_output_mode(ds1307_handle_t handle, ds1307_output_mode_t *mode);
 
 /**
  * @brief     set the square wave frequency
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] freq is the square wave frequency
  * @return    status code
  *            - 0 success
@@ -420,11 +430,11 @@ uint8_t ds1307_get_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t *mo
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_set_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_wave_frequency_t freq);
+uint8_t ds1307_set_square_wave_frequency(ds1307_handle_t handle, ds1307_square_wave_frequency_t freq);
 
 /**
  * @brief      get the square wave frequency
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[out] *freq points to a square wave frequency buffer
  * @return     status code
  *             - 0 success
@@ -433,7 +443,7 @@ uint8_t ds1307_set_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_wave_frequency_t *freq);
+uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t handle, ds1307_square_wave_frequency_t *freq);
 
 /**
  * @}
@@ -448,7 +458,7 @@ uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] handle points to a ds1307 handle structure
  * @param[in] reg is the iic register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the data buffer length
@@ -459,11 +469,11 @@ uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ds1307_set_reg(ds1307_handle_t *handle, uint8_t reg, uint8_t *buf, uint16_t len);
+uint8_t ds1307_set_reg(ds1307_handle_t handle, uint8_t reg, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to a ds1307 handle structure
+ * @param[in]  handle points to a ds1307 handle structure
  * @param[in]  reg is the iic register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the data buffer length
@@ -474,7 +484,7 @@ uint8_t ds1307_set_reg(ds1307_handle_t *handle, uint8_t reg, uint8_t *buf, uint1
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t ds1307_get_reg(ds1307_handle_t *handle, uint8_t reg, uint8_t *buf, uint16_t len);
+uint8_t ds1307_get_reg(ds1307_handle_t handle, uint8_t reg, uint8_t *buf, uint16_t len);
 
 /**
  * @}
