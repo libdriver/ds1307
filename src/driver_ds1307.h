@@ -171,56 +171,56 @@ typedef struct ds1307_info_s
 
 /**
  * @brief     initialize ds1307_handle_t structure
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] STRUCTURE is ds1307_handle_t
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] STRUCTURE ds1307_handle_t
  * @note      none
  */
 #define DRIVER_DS1307_LINK_INIT(HANDLE, STRUCTURE)         memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
  * @brief     link iic_init function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to an iic_init function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to an iic_init function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_IIC_INIT(HANDLE, FUC)          (HANDLE)->iic_init = FUC
 
 /**
  * @brief     link iic_deinit function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to an iic_deinit function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to an iic_deinit function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_IIC_DEINIT(HANDLE, FUC)        (HANDLE)->iic_deinit = FUC
 
 /**
  * @brief     link iic_read function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to an iic_read function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to an iic_read function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_IIC_READ(HANDLE, FUC)          (HANDLE)->iic_read = FUC
 
 /**
  * @brief     link iic_write function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to an iic_write function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to an iic_write function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_IIC_WRITE(HANDLE, FUC)         (HANDLE)->iic_write = FUC
 
 /**
  * @brief     link delay_ms function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to a delay_ms function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to a delay_ms function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_DELAY_MS(HANDLE, FUC)          (HANDLE)->delay_ms = FUC
 
 /**
  * @brief     link debug_print function
- * @param[in] HANDLE points to a ds1307 handle structure
- * @param[in] FUC points to a debug_print function address
+ * @param[in] HANDLE pointer to a ds1307 handle structure
+ * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
 #define DRIVER_DS1307_LINK_DEBUG_PRINT(HANDLE, FUC)       (HANDLE)->debug_print = FUC
@@ -238,7 +238,7 @@ typedef struct ds1307_info_s
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a ds1307 info structure
+ * @param[out] *info pointer to a ds1307 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -248,7 +248,7 @@ uint8_t ds1307_info(ds1307_info_t *info);
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] *handle pointer to a ds1307 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic initialization failed
@@ -260,7 +260,7 @@ uint8_t ds1307_init(ds1307_handle_t *handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a ds1307 handle structure
+ * @param[in] *handle pointer to a ds1307 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic deinit failed
@@ -272,8 +272,8 @@ uint8_t ds1307_deinit(ds1307_handle_t *handle);
 
 /**
  * @brief     set the current time
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] *t points to a time structure
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] *t pointer to a time structure
  * @return    status code
  *            - 0 success
  *            - 1 set time failed
@@ -286,8 +286,8 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t);
 
 /**
  * @brief      get the current time
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[out] *t points to a time structure
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[out] *t pointer to a time structure
  * @return     status code
  *             - 0 success
  *             - 1 get time failed
@@ -299,10 +299,10 @@ uint8_t ds1307_get_time(ds1307_handle_t *handle, ds1307_time_t *t);
 
 /**
  * @brief      read ram
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[in]  addr is the ram address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the buffer length
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[in]  addr ram address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read ram failed
@@ -316,10 +316,10 @@ uint8_t ds1307_read_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, uin
 
 /**
  * @brief     write ram
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] addr is the ram address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the buffer length
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] addr ram address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write ram failed
@@ -333,8 +333,8 @@ uint8_t ds1307_write_ram(ds1307_handle_t *handle, uint8_t addr, uint8_t *buf, ui
 
 /**
  * @brief     enable or disable the oscillator
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set oscillator failed
@@ -346,8 +346,8 @@ uint8_t ds1307_set_oscillator(ds1307_handle_t *handle, ds1307_bool_t enable);
 
 /**
  * @brief      get the chip oscillator status
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get oscillator failed
@@ -359,8 +359,8 @@ uint8_t ds1307_get_oscillator(ds1307_handle_t *handle, ds1307_bool_t *enable);
 
 /**
  * @brief     set the output level
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] level is the output level
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] level output level
  * @return    status code
  *            - 0 success
  *            - 1 set output level failed
@@ -372,8 +372,8 @@ uint8_t ds1307_set_output_level(ds1307_handle_t *handle, ds1307_output_level_t l
 
 /**
  * @brief      get the output level
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[out] *level points to an output level buffer
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[out] *level pointer to an output level buffer
  * @return     status code
  *             - 0 success
  *             - 1 get output level failed
@@ -385,8 +385,8 @@ uint8_t ds1307_get_output_level(ds1307_handle_t *handle, ds1307_output_level_t *
 
 /**
  * @brief     set the output mode
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] mode is the output mode
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] mode output mode
  * @return    status code
  *            - 0 success
  *            - 1 set output mode failed
@@ -398,8 +398,8 @@ uint8_t ds1307_set_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t mod
 
 /**
  * @brief      get the output mode
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[out] *mode points to an output mode buffer
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[out] *mode pointer to an output mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get output mode failed
@@ -411,8 +411,8 @@ uint8_t ds1307_get_output_mode(ds1307_handle_t *handle, ds1307_output_mode_t *mo
 
 /**
  * @brief     set the square wave frequency
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] freq is the square wave frequency
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] freq square wave frequency
  * @return    status code
  *            - 0 success
  *            - 1 set square wave frequency failed
@@ -424,8 +424,8 @@ uint8_t ds1307_set_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
 
 /**
  * @brief      get the square wave frequency
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[out] *freq points to a square wave frequency buffer
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[out] *freq pointer to a square wave frequency buffer
  * @return     status code
  *             - 0 success
  *             - 1 get square wave frequency failed
@@ -448,10 +448,10 @@ uint8_t ds1307_get_square_wave_frequency(ds1307_handle_t *handle, ds1307_square_
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a ds1307 handle structure
- * @param[in] reg is the iic register address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the data buffer length
+ * @param[in] *handle pointer to a ds1307 handle structure
+ * @param[in] reg iic register address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len data buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -463,10 +463,10 @@ uint8_t ds1307_set_reg(ds1307_handle_t *handle, uint8_t reg, uint8_t *buf, uint1
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to a ds1307 handle structure
- * @param[in]  reg is the iic register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the data buffer length
+ * @param[in]  *handle pointer to a ds1307 handle structure
+ * @param[in]  reg iic register address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len data buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
