@@ -69,7 +69,7 @@ uint8_t ds1307_output_deinit(void);
 
 /**
  * @brief     output example set the time
- * @param[in] *t points to a time structure
+ * @param[in] *t pointer to a time structure
  * @return    status code
  *            - 0 success
  *            - 1 set time failed
@@ -79,7 +79,7 @@ uint8_t ds1307_output_set_time(ds1307_time_t *t);
 
 /**
  * @brief     output example set the time by a unix timestamp
- * @param[in] timestamp is a unix timestamp
+ * @param[in] timestamp unix timestamp
  * @return    status code
  *            - 0 success
  *            - 1 set timestamp failed
@@ -89,7 +89,7 @@ uint8_t ds1307_output_set_timestamp(time_t timestamp);
 
 /**
  * @brief     output example set the local time zone
- * @param[in] zone is the local time zone
+ * @param[in] zone local time zone
  * @return    status code
  *            - 0 success
  * @note      none
@@ -98,7 +98,7 @@ uint8_t ds1307_output_set_timestamp_time_zone(int8_t zone);
 
 /**
  * @brief      output example get the time
- * @param[out] *t points to a time structure
+ * @param[out] *t pointer to a time structure
  * @return     status code
  *             - 0 success
  *             - 1 get time failed
@@ -108,7 +108,7 @@ uint8_t ds1307_output_get_time(ds1307_time_t *t);
 
 /**
  * @brief      output example get the time in a unix timestamp
- * @param[out] *timestamp points to a unix timestamp buffer
+ * @param[out] *timestamp pointer to a unix timestamp buffer
  * @return     status code
  *             - 0 success
  *             - 1 get timestamp failed
@@ -118,7 +118,7 @@ uint8_t ds1307_output_get_timestamp(time_t *timestamp);
 
 /**
  * @brief      output example get the local time zone
- * @param[out] *zone points to a local time zone buffer
+ * @param[out] *zone pointer to a local time zone buffer
  * @return     status code
  *             - 0 success
  * @note       none
@@ -127,8 +127,8 @@ uint8_t ds1307_output_get_timestamp_time_zone(int8_t *zone);
 
 /**
  * @brief      output example get the ascii time
- * @param[out] *buf points to an ascii buffer
- * @param[in]  len is the data length
+ * @param[out] *buf pointer to an ascii buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -138,7 +138,7 @@ uint8_t ds1307_output_get_ascii_time(char *buf, uint8_t len);
 
 /**
  * @brief     output example set output mode
- * @param[in] mode is the output mode
+ * @param[in] mode output mode
  * @return    status code
  *            - 0 success
  *            - 1 set mode failed
@@ -148,7 +148,7 @@ uint8_t ds1307_output_set_mode(ds1307_output_mode_t mode);
 
 /**
  * @brief      output example get output mode
- * @param[out] *mode points to an output mode buffer
+ * @param[out] *mode pointer to an output mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get mode failed
@@ -158,7 +158,7 @@ uint8_t ds1307_output_get_mode(ds1307_output_mode_t *mode);
 
 /**
  * @brief     output example set output level
- * @param[in] level is the output level
+ * @param[in] level output level
  * @return    status code
  *            - 0 success
  *            - 1 set level failed
@@ -168,7 +168,7 @@ uint8_t ds1307_output_set_level(ds1307_output_level_t level);
 
 /**
  * @brief      output example get output level
- * @param[out] *level points to an output level buffer
+ * @param[out] *level pointer to an output level buffer
  * @return     status code
  *             - 0 success
  *             - 1 get level failed
@@ -178,7 +178,7 @@ uint8_t ds1307_output_get_level(ds1307_output_level_t *level);
 
 /**
  * @brief     output example set square wave frequency
- * @param[in] freq is the square wave frequency
+ * @param[in] freq square wave frequency
  * @return    status code
  *            - 0 success
  *            - 1 set square wave frequency failed
@@ -188,7 +188,7 @@ uint8_t ds1307_output_set_square_wave_frequency(ds1307_square_wave_frequency_t f
 
 /**
  * @brief      output example get square wave frequency
- * @param[out] *freq points to a square wave frequency buffer
+ * @param[out] *freq pointer to a square wave frequency buffer
  * @return     status code
  *             - 0 success
  *             - 1 get square wave frequency failed
