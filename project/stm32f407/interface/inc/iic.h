@@ -71,9 +71,9 @@ uint8_t iic_deinit(void);
 
 /**
  * @brief     iic write command
- * @param[in] addr is the iic device write address
- * @param[in] *buf points to a buffer address
- * @param[in] len is the buffer length
+ * @param[in] addr iic device write address
+ * @param[in] *buf pointer to a buffer address
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -86,9 +86,9 @@ uint8_t iic_write_command(uint8_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      iic read command
- * @param[in]  addr is the iic device write address
- * @param[out] *buf points to a buffer address
- * @param[in]  len is the buffer length
+ * @param[in]  addr iic device write address
+ * @param[out] *buf pointer to a buffer address
+ * @param[in]  len buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -101,10 +101,10 @@ uint8_t iic_read_command(uint8_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      iic read
- * @param[in]  addr is the iic device write address
- * @param[in]  reg is the register address
- * @param[out] *buf points to a buffer address
- * @param[in]  len is the buffer length
+ * @param[in]  addr iic device write address
+ * @param[in]  reg register address
+ * @param[out] *buf pointer to a buffer address
+ * @param[in]  len buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -117,10 +117,10 @@ uint8_t iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);
 
 /**
  * @brief     iic write
- * @param[in] addr is the iic device write address
- * @param[in] reg is the register address
- * @param[in] *buf points to a buffer address
- * @param[in] len is the buffer length
+ * @param[in] addr iic device write address
+ * @param[in] reg register address
+ * @param[in] *buf pointer to a buffer address
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -133,10 +133,10 @@ uint8_t iic_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      iic read address16
- * @param[in]  addr is the iic device write address
- * @param[in]  reg is the register address
- * @param[out] *buf points to a buffer address
- * @param[in]  len is the buffer length
+ * @param[in]  addr iic device write address
+ * @param[in]  reg register address
+ * @param[out] *buf pointer to a buffer address
+ * @param[in]  len buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -149,10 +149,10 @@ uint8_t iic_read_address16(uint8_t addr, uint16_t reg, uint8_t *buf, uint16_t le
 
 /**
  * @brief     iic write address16
- * @param[in] addr is the iic device write address
- * @param[in] reg is the register address
- * @param[in] *buf points to a buffer address
- * @param[in] len is the buffer length
+ * @param[in] addr iic device write address
+ * @param[in] reg register address
+ * @param[in] *buf pointer to a buffer address
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -162,54 +162,6 @@ uint8_t iic_read_address16(uint8_t addr, uint16_t reg, uint8_t *buf, uint16_t le
  * @note      none
  */
 uint8_t iic_write_address16(uint8_t addr, uint16_t reg, uint8_t *buf, uint16_t len);
-
-/**
- * @}
- */
-
-/**
- * @addtogroup port
- * @{
- */
-
-/**
- * @brief  get the iic tx dma handle
- * @return points to a tx dma handle
- * @note   none
- */
-DMA_HandleTypeDef* iic_get_tx_dma_handle(void);
-
-/**
- * @brief  get the iic rx dma handle
- * @return points to a rx dma handle
- * @note   none
- */
-DMA_HandleTypeDef* iic_get_rx_dma_handle(void);
-
-/**
- * @brief  get the iic handle
- * @return points to an iic handle
- * @note   none
- */
-I2C_HandleTypeDef* iic_get_handle(void);
-
-/**
- * @brief iic set tx done
- * @note  none
- */
-void iic_set_tx_done(void);
-
-/**
- * @brief iic set rx done
- * @note  none
- */
-void iic_set_rx_done(void);
-
-/**
- * @brief iic set error
- * @note  none
- */
-void iic_set_error(void);
 
 /**
  * @}
