@@ -10,7 +10,7 @@
 
 The DS1307 serial real-time clock (RTC) is a low-power, full binary-coded decimal (BCD) clock/calendar plus 56 bytes of NV SRAM. Address and data are transferred serially through an I2C, bidirectional bus. The clock/calendar provides seconds, minutes, hours, day, date, month, and year information. The end of the month date is automatically adjusted for months with fewer than 31 days, including corrections for leap year. The clock operates in either the 24-hour or 12-hour format with AM/PM indicator. The DS1307 has a built-in power-sense circuit that detects power failures and automatically switches to the backup supply. Timekeeping operation continues while the part operates from the backup supply.
 
-LibDriver DS1307 is a full function driver of ds1307 launched by LibDriver.It provides time reading, square wave output and other functions. LibDriver is MISRA compliant.
+LibDriver DS1307 is a full-featured driver of DS1307 launched by LibDriver.It provides time reading, square wave output and other functions. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
