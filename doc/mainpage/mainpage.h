@@ -1,10 +1,10 @@
 /**
  * @mainpage  LibDriver DS1307
- * @brief     LibDriver DS1307 is a full function driver of DS1307 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver DS1307 is a full-featured driver of DS1307 and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
- * <h3>history</h3>
+ * <h3>History</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
  * <tr><td>2023/05/31  <td>1.0      <td>Shifeng Li  <td>first upload

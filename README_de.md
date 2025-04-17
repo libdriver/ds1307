@@ -10,7 +10,7 @@
 
 Die serielle Echtzeituhr (RTC) DS1307 ist eine stromsparende, vollständig binär codierte Dezimaluhr (BCD) mit 56 Byte NV-SRAM. Adressen und Daten werden seriell über einen bidirektionalen I2C-Bus übertragen. Die Uhr/der Kalender bietet Informationen zu Sekunden, Minuten, Stunden, Tag, Datum, Monat und Jahr. Das Monatsendedatum wird für Monate mit weniger als 31 Tagen automatisch angepasst, einschließlich Korrekturen für Schaltjahre. Die Uhr arbeitet entweder im 24-Stunden- oder 12-Stunden-Format mit AM/PM-Anzeige. Der DS1307 verfügt über eine integrierte Stromerkennungsschaltung, die Stromausfälle erkennt und automatisch auf die Notstromversorgung umschaltet. Der Zeitnehmungsbetrieb wird fortgesetzt, während das Teil mit der Notstromversorgung betrieben wird.
 
-LibDriver DS1307 ist ein voll funktionsfähiger Treiber von ds1307, der von LibDriver gestartet wurde. Er bietet Zeitablesung, Rechteckwellenausgabe und andere Funktionen. LibDriver ist MISRA-kompatibel.
+LibDriver DS1307 ist ein voll funktionsfähiger Treiber von DS1307, der von LibDriver gestartet wurde. Er bietet Zeitablesung, Rechteckwellenausgabe und andere Funktionen. LibDriver ist MISRA-kompatibel.
 
 ### Inhaltsverzeichnis
 
