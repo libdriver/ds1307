@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['iic_5fdeinit_126',['iic_deinit',['../structds1307__handle__s.html#af6963bbad902ca6e43942b48c07986c3',1,'ds1307_handle_s']]],
-  ['iic_5finit_127',['iic_init',['../structds1307__handle__s.html#a8826dd07625f8d90859ce9bd09628d61',1,'ds1307_handle_s']]],
-  ['iic_5fread_128',['iic_read',['../structds1307__handle__s.html#af4ef726288b88f51a846483803a1249b',1,'ds1307_handle_s']]],
-  ['iic_5fwrite_129',['iic_write',['../structds1307__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5',1,'ds1307_handle_s']]],
-  ['inited_130',['inited',['../structds1307__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'ds1307_handle_s']]],
-  ['interface_131',['interface',['../structds1307__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'ds1307_info_s']]]
+  ['format_0',['format',['../structds1307__time__s.html#af9d269a91654b41eff697d1dfa0a80d5',1,'ds1307_time_s']]],
+  ['function_1',['function',['../group__ds1307__base__driver.html',1,'ds1307 base driver function'],['../group__ds1307__driver.html',1,'ds1307 driver function'],['../group__ds1307__example__driver.html',1,'ds1307 example driver function'],['../group__ds1307__extern__driver.html',1,'ds1307 extern driver function'],['../group__ds1307__interface__driver.html',1,'ds1307 interface driver function'],['../group__ds1307__link__driver.html',1,'ds1307 link driver function'],['../group__ds1307__test__driver.html',1,'ds1307 test driver function']]]
 ];
