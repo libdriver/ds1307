@@ -203,9 +203,9 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
     }
     if (t->format == DS1307_FORMAT_12H)                                                                      /* if 12H */
     {
-        if ((t->year < 2000) || (t->year > 2100))                                                            /* check year */
+        if ((t->year < 2000) || (t->year > 2099))                                                            /* check year */
         {
-            handle->debug_print("ds1307: year can't be over 2100 or less than 2000.\n");                     /* year can't be over 2100 or less than 2000 */
+            handle->debug_print("ds1307: year can't be over 2099 or less than 2000.\n");                     /* year can't be over 2099 or less than 2000 */
             
             return 4;                                                                                        /* return error */
         }
@@ -248,9 +248,9 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
     }
     else if (t->format == DS1307_FORMAT_24H)                                                                 /* if 24H */
     {
-        if ((t->year < 2000) || (t->year > 2100))                                                            /* check year */
+        if ((t->year < 2000) || (t->year > 2099))                                                            /* check year */
         {
-            handle->debug_print("ds1307: year can't be over 2100 or less than 2000.\n");                     /* year can't be over 2100 or less than 2000 */
+            handle->debug_print("ds1307: year can't be over 2099 or less than 2000.\n");                     /* year can't be over 2099 or less than 2000 */
             
             return 4;                                                                                        /* return error */
         }
@@ -348,10 +348,10 @@ uint8_t ds1307_set_time(ds1307_handle_t *handle, ds1307_time_t *t)
         
         return 1;                                                                                            /* return error */
     }
-    res = a_ds1307_iic_write(handle, DS1307_REG_MONTH, a_ds1307_hex2bcd(t->month));                          /* write month and century */
+    res = a_ds1307_iic_write(handle, DS1307_REG_MONTH, a_ds1307_hex2bcd(t->month));                          /* write month */
     if (res != 0)                                                                                            /* check result */
     {
-        handle->debug_print("ds1307: write century and month failed.\n");                                    /* write century and month failed */
+        handle->debug_print("ds1307: write month failed.\n");                                                /* write month failed */
         
         return 1;                                                                                            /* return error */
     }
